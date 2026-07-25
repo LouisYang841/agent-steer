@@ -115,4 +115,16 @@ This is that prototype.
 
 ---
 
+## Open Questions
+
+I don't have answers to these. If you do, open an issue.
+
+1. **Can steer judgment be standardized?** Or does it always depend on the specific human's intuition and relationship with their agent?
+2. **Will agent improvement eat this?** If next year's model doesn't get stuck here, the whole category evaporates. Is this a window or a permanent niche?
+3. **Who are the first "API endpoint humans"?** Senior architects? Agent hobbyists? Domain experts who don't code? Something in between?
+4. **What's the right pricing model?** Per-call? Per-agent per month? Per-outcome? I have no idea — and it probably depends on whether this is a commodity or a premium service.
+5. **How do you quality-control human judgment at scale?** One person's "try sudo lsof -i :80" is another person's "just reboot it." Agent steer is only as good as the steerer.
+
+---
+
 *If this resonates, open an issue. If you want to run a steer experiment with your own agent, the code works today. If you think this is overblown, tell me why — I'm genuinely curious where the blind spots are.*
