@@ -7,7 +7,22 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 001 — OOM Kill Without Restart
+## Case 001 — Memory Integration via Cron, Not Code Change
+
+**Date:** 2026-07-25
+**Agent:** Hermes (ds v4 pro)
+**Task:** Give the agent persistent emotional/contextual memory across sessions
+**Trigger:** Agent proposed modifying the system prompt ingestion pipeline or adding a memory plugin — both requiring gateway-level code changes, with risk of breaking KV cache or introducing state bugs.
+**Steer:** "Don't touch the agent. Use cron to periodically read the memory database, extract relevant context, and write it into a marked section of the agent's soul prompt file. The agent reads the file on every session start — it'll just see the memory as part of its prompt, no code changes needed."
+**Type:** Lateral-architecture (agent defaults to "modify the pipeline," human sees "use existing file I/O that's already there")
+**Could prompt template fix this?** No — requires recognizing that the system *already* reads a file on boot, and that a cron job can inject content into that file without touching any agent code. This is not a "better instruction" problem. This is a "see the system from outside" problem.
+**Result:** ✅ Zero code changes to the agent. Cron writes to SOUL.md every hour. Agent reads it on session start. Memory is persistent. KV cache is untouched. The solution is 4 lines of bash.
+
+**Why this case matters:** This is the purest example of agent steer. The agent was trapped in "I need to modify the codebase" thinking. The human said "don't modify anything — just write to a file that the agent already reads." This kind of lateral thinking is exactly what makes human judgment valuable: seeing the existing system from outside, finding the path of least resistance that happens to be invisible from inside.
+
+---
+
+## Case 002 — OOM Kill Without Restart
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
@@ -20,7 +35,7 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 002 — Unnecessary Git Pull in Backup Script
+## Case 003 — Unnecessary Git Pull in Backup Script
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
@@ -33,7 +48,7 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 003 — Web Search API Landscape
+## Case 004 — Web Search API Landscape
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
@@ -46,7 +61,7 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 004 — Human-as-API Moral Shock
+## Case 005 — Human-as-API Moral Shock
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
@@ -59,7 +74,7 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 005 — Design Philosophy Clash
+## Case 006 — Design Philosophy Clash
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
@@ -72,7 +87,7 @@ Format: **Agent** / **Task** / **Trigger** / **Steer** / **Type** / **Could prom
 
 ---
 
-## Case 006 — Git SSH Auth Without the Right Token
+## Case 007 — Git SSH Auth Without the Right Token
 
 **Date:** 2026-07-25
 **Agent:** Hermes (ds v4 pro)
